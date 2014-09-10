@@ -12,10 +12,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install rails_script
-
 ## Usage
 
 ### Setup
@@ -91,6 +87,36 @@ class App.Users extends App.Base
 When a new controller is generated, the JavaScript asset file will be generated with Rails Script.  However, if you need to manually generate a Rails Script controller you can use:
 
     $ rails g rails_script:controller Some::NewController
+    
+Since the above example includes a namespace, it would generate:
+
+```
+# app/assets/javascripts/some/new_controller.js.coffee
+
+window.App ||= {}
+class App.SomeNewController extends App.Base
+
+  constructor: ->
+    super
+    return this
+
+
+  index: ->
+    return
+
+
+  show: ->
+    return
+
+
+  new: ->
+    return
+
+
+  edit: ->
+    return
+```
+
 
 ## Contributing
 
