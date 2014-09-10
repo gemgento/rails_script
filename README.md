@@ -81,6 +81,51 @@ class App.Users extends App.Base
 ```
 
 
+### Controller Specific JavaScript
+
+Executing some JavaScript to run on all controller actions is just a matter of adding it to the class contstructor.  In the below example we will change the background color of the page for all actions in ```UsersController```.
+
+```
+# app/assets/javascripts/users.js.coffee
+window.App ||= {}
+class App.Example extends App.Base
+
+  constructor: ->
+    super
+    
+    $('body').css('background-color', 'yellow')
+    
+    return this
+```
+
+Note the call to ```super``` and the ```return this```, it is very important to keep these.  If you wanted your Controller specific JavaScript to run before Application wide JavaScript, then you would call ```super``` just before ```return this```.  Returning ```this``` allows the Application layout JavaScript to call the action specific functions.
+
+
+### Application Wide JavaScript
+
+Running some JavaScript on every page of an Application is a common need.  For example, we may want to create a site credit rollover in the footer of every page.
+
+```
+# app/assets/javascripts/base.js.coffee
+window.App ||= {}
+class App.Base
+
+  constructor: ->
+    @footerRollover()
+    return this
+    
+  footerRollover: ->
+    $(".site-credit a").hoverIntent(
+      over: ->
+        $(".site-credit a").html("<div class='maui-logo'></div>")
+      out: ->
+        $(".site-credit a").html("SITE CREDIT")
+    )
+```
+
+In this example we extracted the rollover action into a new function.  Doing so will make the class cleaner and easier to maintain as the application grows.  Once again note the ```return this``` in the contructor.
+
+
 ### Generating New Controllers
 
 When a new controller is generated, the JavaScript asset file will be generated with Rails Script.  However, if you need to manually generate a Rails Script controller you can use:
