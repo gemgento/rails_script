@@ -22,26 +22,9 @@ module RailsScript
 
       def insert_layout_javascript
         say <<-RUBY
-In order to complete installation, you must add the following JavaScript snippet before the CLOSING body tag in your application layout.
+In order to complete installation, you must include the following helper BEFORE the closing body tag in the application layout:
 
-ERB:
-<script>
-  jQuery(function() {
-    window.$this = new (App.<%= controller_path.split(/\\/|_/).map(&:capitalize).join('') %> || App.Base)();
-    if (typeof $this.<%= action_name %> === 'function') {
-      return $this.<%= action_name%>.call();
-    }
-  });
-</script>
-
-HAML:
-:javascript
-  jQuery(function() {
-    window.$this = new (App.\#{controller_path.split(/\\/|_/).map(&:capitalize).join('')} || App.Base)();
-    if (typeof $this.\#{action_name} === 'function') {
-      return $this.\#{action_name}.call();
-    }
-  });
+<%= include_rails_script %>
         RUBY
       end
 
