@@ -16,10 +16,6 @@ module RailsScript
         end
       end
 
-      def create_controllers
-        generate 'rails_script:controller'
-      end
-
       def insert_layout_javascript
         say <<-RUBY
 In order to complete installation, you must include the following helper BEFORE the closing body tag in the application layout:

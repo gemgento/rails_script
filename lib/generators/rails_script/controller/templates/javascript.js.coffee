@@ -1,5 +1,5 @@
 window.App ||= {}
-class App.Example extends App.Base
+class App.<%= controller.gsub('::', '') %> extends App.Base
 
   constructor: ->
     super
