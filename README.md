@@ -20,17 +20,18 @@ After the generator finishes, you will be prompted to add some JavaScript to you
 
 For ERB:
 ```
-jQuery(function() {
-    window.$this = new (App.#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
-    if (typeof $this.#{action_name} === 'function') {
-      return $this.#{action_name}.call();
-    }
-});
+<script>
+    jQuery(function() {
+        window.$this = new (App.#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
+        if (typeof $this.#{action_name} === 'function') {
+          return $this.#{action_name}.call();
+        }
+    });
+</script>
 ```
 
 For HAML:
 ```
-HAML:
 :javascript
   jQuery(function() {
     window.$this = new (App.\#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
