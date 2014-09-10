@@ -1,5 +1,5 @@
 window.App ||= {}
-class App.<%= class_name  %> extends App.Base
+class App.<%= class_name %> extends App.Base
 
   constructor: ->
     super

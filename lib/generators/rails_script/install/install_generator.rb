@@ -26,12 +26,12 @@ In order to complete installation, you must add the following JavaScript snippet
 
 ERB:
 <script>
-jQuery(function() {
-    window.$this = new (App.\#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
-    if (typeof $this.\#{action_name} === 'function') {
-      return $this.\#{action_name}.call();
+  jQuery(function() {
+    window.$this = new (App.<%= controller_path.split(/\/|_/).map(&:capitalize).join('') %> || App.Base)();
+    if (typeof $this.<%= action_name %> === 'function') {
+      return $this.<%= action_name%>.call();
     }
-});
+  });
 </script>
 
 HAML:
