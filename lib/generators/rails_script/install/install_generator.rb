@@ -16,6 +16,10 @@ module RailsScript
         end
       end
 
+      def create_controllers
+        generate 'rails_script:controller'
+      end
+
       def insert_layout_javascript
         say <<-RUBY
 In order to complete installation, you must add the following JavaScript snippet before the CLOSING body tag in your application layout.
