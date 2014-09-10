@@ -11,12 +11,8 @@ Add this line to your application's Gemfile:
 And then execute:
 
     $ bundle
-
-## Usage
-
-### Setup
-
-First you need to run the initial installation generator:
+    
+After bundling you need to run the initial installation generator:
 
     $ rails g rails_script:install
     
@@ -43,6 +39,8 @@ HAML:
     }
   });
 ```
+
+## Usage
 
 ### Global Functions
 
