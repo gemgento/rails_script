@@ -6,7 +6,7 @@ Rails Script is a Rails-centric, object oriented, featherweight framework for wr
 
 Add this line to your application's Gemfile:
 
-    gem 'rails_script'
+    gem 'rails-script'
 
 And then execute:
 
