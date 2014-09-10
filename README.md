@@ -159,6 +159,8 @@ class App.SomeNewController extends App.Base
     return
 ```
 
+None of the pre-defined functions are necessary, you can remove the ones you don't want.
+
 
 ## Contributing
 
