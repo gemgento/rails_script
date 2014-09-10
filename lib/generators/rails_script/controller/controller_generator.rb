@@ -15,7 +15,6 @@ module RailsScript
         end
 
         controllers.each do |controller|
-          class_name = controller
           copy_file 'javascript.js.coffee', "app/assets/javascripts/#{controller.underscore}.js.coffee"
           gsub_file "app/assets/javascripts/#{controller.underscore}.js.coffee", 'Example', controller.gsub('::', '')
         end
