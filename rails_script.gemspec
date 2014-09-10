@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'rails_script/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'rails_script'
+  spec.name          = 'rails-script'
   spec.version       = RailsScript::VERSION
   spec.authors       = ['Kevin Pheasey']
   spec.email         = ['kevin.pheasey@gmail.com']
