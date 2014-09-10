@@ -16,29 +16,10 @@ After bundling you need to run the initial installation generator:
 
     $ rails g rails_script:install
     
-After the generator finishes, you will be prompted to add some JavaScript to your application layout.  The code is responsible for initializing and call the action specific JavaScript.  This snippet should be added before the closing body tag.
+After the generator finishes, you will be prompted to add helper call to your application layout.  The generated code is responsible for initializing and call the action specific JavaScript.  This helper shouyld be called before the closing body tag.
 
-For ERB:
 ```
-<script>
-  jQuery(function() {
-    window.$this = new (App.<%= controller_path.split(/\/|_/).map(&:capitalize).join('') %> || App.Base)();
-    if (typeof $this.<%= action_name %> === 'function') {
-      return $this.<%= action_name%>.call();
-    }
-  });
-</script>
-```
-
-For HAML:
-```
-:javascript
-  jQuery(function() {
-    window.$this = new (App.#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
-    if (typeof $this.#{action_name} === 'function') {
-      return $this.#{action_name}.call();
-    }
-  });
+<%= include_rails_script %>
 ```
 
 ## Usage
