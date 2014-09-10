@@ -1,5 +1,5 @@
-require "rails_script/version"
+require 'rails_script/version'
+require 'rails_script/railtie' if defined?(Rails)
 
 module RailsScript
-  # Your code goes here...
 end
