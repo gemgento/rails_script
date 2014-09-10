@@ -92,9 +92,7 @@ class App.Example extends App.Base
 
   constructor: ->
     super
-    
     $('body').css('background-color', 'yellow')
-    
     return this
 ```
 
