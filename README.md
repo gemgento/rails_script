@@ -1,6 +1,6 @@
-# Rails Script
+# RailsScript
 
-Rails Script is a Rails-centric, object oriented, featherweight framework for writting CoffeeScript.  It is optomized for the [Rails Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html) and is compatible with [TurboLinks](https://github.com/rails/turbolinks).  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintanable page specific JavaScript.
+RailsScript is a Rails-centric, object oriented, featherweight framework for writting CoffeeScript.  It is optomized for the [Rails Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html) and is compatible with [TurboLinks](https://github.com/rails/turbolinks).  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintanable page specific JavaScript.
 
 ## Installation
 
@@ -107,7 +107,7 @@ In this example we extracted the rollover action into a new function.  Doing so 
 
 ### Generating New Controllers
 
-When a new controller is generated, the JavaScript asset file will be generated with Rails Script.  However, if you need to manually generate a Rails Script controller you can use:
+When a new controller is generated, the JavaScript asset file will be generated with RailsScript.  However, if you need to manually generate a RailsScript controller you can use:
 
     $ rails g rails_script:controller Some::NewController
     
