@@ -45,7 +45,7 @@ For HAML:
 
 ### Global Functions
 
-Any functions that need to be accessible in the global scope should be defined in ```global.js.coffee``` using the ```App``` namespace.  Below is an example of one of our favorite functions that we use to submit a jorm using AJAX as a JSON request.
+Any functions that need to be accessible in the global scope should be defined in ```global.js.coffee``` using the ```App``` namespace.  Below is an example of one of our favorite functions that we use to submit a form using AJAX as a JSON request.
 
 ```
 # app/assets/javascripts/global.js.coffee
@@ -63,7 +63,7 @@ App.remoteSubmission = ($form, onCompleteCallBack) ->
   return
 ```
 
-Now you can access this function from anywhere in the application by just calling ```App.remoteSubmission($('#myForm', alert('Hello'))```
+Now you can access this function from anywhere in the application by just calling ```App.remoteSubmission($('#myForm'), alert('Hello'))```
 
 
 ### Page Specific JavaScript
