@@ -1,6 +1,6 @@
 # Rails Script
 
-Rails Script is a Rails-centric featherweight framework for writting CoffeeScript.  It is optomized for the Rails Asset Pipeline and is compatible with TurboLinks.  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintanable page specific JavaScript.
+Rails Script is a Rails-centric, object oriented, featherweight framework for writting CoffeeScript.  It is optomized for the Rails Asset Pipeline and is compatible with TurboLinks.  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintanable page specific JavaScript.
 
 ## Installation
 
@@ -49,10 +49,11 @@ HAML:
 ```
 
 ### Global Functions
+
 Any functions that need to be accessible in the global scope should be defined in ```global.js.coffee``` using the ```App``` namespace.  Below is an example of one of our favorite functions that we use to submit a jorm using AJAX as a JSON request.
 
 ```
-# global.js.coffee
+# app/assets/javascripts/global.js.coffee
 window.App ||= {}
 
 App.remoteSubmission = ($form, onCompleteCallBack) ->
@@ -68,6 +69,22 @@ App.remoteSubmission = ($form, onCompleteCallBack) ->
 ```
 
 Now you can access this function from anywhere in the application by just calling ```App.remoteSubmission($('#myForm', alert('Hello'))```
+
+
+### Page Specific JavaScript
+
+This is where things get even easier, your JavaScript class is named after your Controller and there is a method for each Controller action.  Whenever you generate a Controller, the CoffeeScript file that is generated will define the new JavaScript class and the basic REST actions.  This means on ```Users#show``` we can submit that 'follow' request in the background like so:
+
+```
+# app/assets/javascripts/users.js.coffee
+
+window.App ||= {}
+class App.Users extends App.Base
+
+   show: ->
+      App.remoteSubmission($('#follow-user-form'), alert('You are now following them!'))
+```
+
 
 ### Generating New Controllers
 
