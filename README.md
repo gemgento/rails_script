@@ -34,9 +34,9 @@ For HAML:
 ```
 :javascript
   jQuery(function() {
-    window.$this = new (App.\#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
-    if (typeof $this.\#{action_name} === 'function') {
-      return $this.\#{action_name}.call();
+    window.$this = new (App.#{controller_path.split(/\/|_/).map(&:capitalize).join('')} || App.Base)();
+    if (typeof $this.#{action_name} === 'function') {
+      return $this.#{action_name}.call();
     }
   });
 ```
