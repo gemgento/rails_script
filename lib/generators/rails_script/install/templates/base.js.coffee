@@ -6,10 +6,10 @@ class App.Base
 
 
   create: ->
-    $this.new()
-    return
+    if typeof $this.new == 'function'
+      return $this.new()
 
 
   update: ->
-    $this.edit()
-    return
+    if typeof $this.edit == 'function'
+      return $this.edit()
