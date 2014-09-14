@@ -21,6 +21,7 @@ module RailsScript
 In order to complete installation, you must include the following helper BEFORE the closing body tag in the application layout:
 
 <%= include_rails_script %>
+
         RUBY
       end
 
