@@ -184,6 +184,7 @@ This will create the following in ```/app/assets/javascripts/elements/main_menu.
 
 ```
 # /app/assets/javascripts/elements/main_menu.js.coffee```
+
 window.App.Element ||= {}
 class App.Element.MainMenu
 
@@ -195,6 +196,7 @@ We can now add all the logic for the main menu in a separate class and call it o
 
 ```
 # app/assets/javascripts/base.js.coffee
+
 window.App ||= {}
 class App.Base
 
@@ -210,10 +212,11 @@ Inheritance is another key tool for reusability.  Let's say our ```Element.MainM
 
     $ rails g rails:script MainMenu Modal
     
-This would generate:
+Which generates:
 
 ````
-# /app/assets/javascripts/elements/main_menu.js.coffee```
+# /app/assets/javascripts/elements/main_menu.js.coffee
+
 window.App.Element ||= {}
 class App.Element.MainMenu extends App.Utility.Modal
 
@@ -224,7 +227,7 @@ class App.Element.MainMenu extends App.Utility.Modal
 Inheritance from the generator can only come from a Utility class.  Any custom class you wish to extend should be created as a Utility.  The installer adds the line ```//= require_tree ./utilities``` before loading tree to handle this.  If you have a utility that extends a utility, you should make sure the extended utility is loaded first by explicitly requiring it before the utilities tree.
 
 
-### Generating New Controllers
+### Custom Controllers
 
 When a new controller is generated, the JavaScript asset file will be generated with RailsScript.  However, if you need to manually generate a RailsScript controller you can use:
 
@@ -260,6 +263,28 @@ class App.SomeNewController extends App.Base
 ```
 
 None of the pre-defined functions are necessary, you can remove the ones you don't want.
+
+
+### Generic Classes
+
+To generate a generic class that isn't a Utility, Element or Controller, just use the following:
+
+    $ rails g rails_script:class My::ClassName
+    
+Which generates:
+
+```
+# /app/assets/javascripts/my/class_name.js.coffee
+
+window.App ||= {}
+class App.MyClassName
+    
+    constructor: ->
+        return this
+
+```
+
+
 
 
 ## Contributing
