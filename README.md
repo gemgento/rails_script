@@ -191,6 +191,37 @@ class App.Element.MainMenu
         return this
 ```
 
+We can now add all the logic for the main menu in a separate class and call it on every page like so:
+
+```
+# app/assets/javascripts/base.js.coffee
+window.App ||= {}
+class App.Base
+
+  constructor: ->
+    App.mainMenu = new App.Element.MainMenu()
+    return this
+```
+
+
+#### Element Inheritance
+
+Inheritance is another key tool for reusability.  Let's say our ```Element.MainMenu``` opens and closes in the same way as the ```Utility.Modal```.  Well then MainMenu should just extend Modal, this can be accomplished from the generator:
+
+    $ rails g rails:script MainMenu Modal
+    
+This would generate:
+
+````
+# /app/assets/javascripts/elements/main_menu.js.coffee```
+window.App.Element ||= {}
+class App.Element.MainMenu extends App.Utility.Modal
+
+    constructor: ->
+        return this
+````
+    
+Inheritance from the generator can only come from a Utility class.  Any custom class you wish to extend should be created as a Utility.  The installer adds the line ```//= require_tree ./utilities``` before loading tree to handle this.  If you have a utility that extends a utility, you should make sure the extended utility is loaded first by explicitly requiring it before the utilities tree.
 
 
 ### Generating New Controllers
