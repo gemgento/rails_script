@@ -1,6 +1,5 @@
-window.App ||= {}
-window.App.Utility ||= {}
-class App.Utility.<%= utility_name.gsub('::', '') %>
+window.Utility ||= {}
+class Utility.<%= utility_name.gsub('::', '') %>
 
   constructor: ->
     super

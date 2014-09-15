@@ -17,17 +17,17 @@ module RailsScript
         if File.exist?('app/assets/javascripts/application.js')
 
           if File.readlines('app/assets/javascripts/application.js').grep('//= require_tree .').any?
-            inject_into_file 'app/assets/javascripts/application.js',  "\n//= require base\n//= require_tree ./utilities", before: "\n//= require_tree ."
+            inject_into_file 'app/assets/javascripts/application.js',  "\n//= require base\n//= require_tree ./utilities\n//= require_tree ./elements", before: "\n//= require_tree ."
           else
-            append_file 'app/assets/javascripts/application.js',  "\n//= require base\n//= require_tree ./utilities\n//= require_tree ."
+            append_file 'app/assets/javascripts/application.js',  "\n//= require base\n//= require_tree ./utilities\n//= require_tree ./elements\n//= require_tree ."
           end
 
         elsif File.exist?('app/assets/javascripts/application.js.coffee')
 
           if File.readlines('app/assets/javascripts/application.js.coffee').grep('#= require_tree .').any?
-            inject_into_file 'app/assets/javascripts/application.js.coffee', "\n#= require base\n#= require_tree ./utilities", before: "\n#= require_tree ."
+            inject_into_file 'app/assets/javascripts/application.js.coffee', "\n#= require base\n#= require_tree ./utilities\n#= require_tree ./elements", before: "\n#= require_tree ."
           else
-            append_file 'app/assets/javascripts/application.js.coffee',  "\n#= require base\n#= require_tree ./utilities\n#= require_tree ."
+            append_file 'app/assets/javascripts/application.js.coffee',  "\n#= require base\n#= require_tree ./utilities\n#= require_tree ./elements\n#= require_tree ."
           end
         end
       end
