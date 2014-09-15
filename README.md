@@ -105,6 +105,94 @@ class App.Base
 In this example we extracted the rollover action into a new function.  Doing so will make the class cleaner and easier to maintain as the application grows.  Once again note the ```return this``` in the contructor.
 
 
+### Utilities
+
+A ```Utility``` is a class that will be used to create similar functionality in many areas of the application.  A good example of this is a Modal, which could appear multiple times on the same page.  So, let's encapsulate this functionality in a highly reusable class.
+
+First, generate the ```Utility```
+
+    $ rails g rails_script:utility Modal
+    
+This will create the following in ```/app/assets/javascripts/utilities/modal.js.coffee```:
+
+```
+# /app/assets/javascripts/utilities/modal.js.coffee
+window.App ||= {}
+window.App.Utility ||= {}
+class App.Utility.Modal
+    
+    constructor: ->
+        return this
+```
+
+Let's add some basic functionality:
+
+```
+# /app/assets/javascripts/utilities/modal.js.coffee
+window.App ||= {}
+window.App.Utility ||= {}
+class App.Utility.Modal
+    @element
+    @trigger
+    @isOpen = false
+    
+    constructor: ($element, $trigger) ->
+        @element = $element
+        @trigger = $trigger
+        @trigger.on 'click', @toggle
+        return this
+        
+    
+    toggle: (event) =>
+        event.preventDefault()
+        if @isShowing then @close() else @open()
+        
+    
+    open: =>
+        @isShowing = true
+        @element.show()
+        
+    
+    close: =>
+        @isShowing = false
+        @element.fadeOut('fast')
+```
+
+Now, here's how we use the utility from ```users#show```
+
+```
+# app/assets/javascripts/users.js.coffee
+
+window.App ||= {}
+class App.Users extends App.Base
+
+   show: ->
+        @galleryModal = new App.Utility.Modal($('#user-gallery-modal-wrapper'), $('user-gallery-modal-toggle-button'))
+
+```
+
+
+### Elements
+
+An ```Element``` is a class that describes the funcionality of a one off element in the applicattion.  A Main Menu is a good example of this since there is usually only a single Main Menu.
+
+First generate the ```Element```
+
+    $ rails g rails_script:element MainMenu
+    
+This will create the following in ```/app/assets/javascripts/elements/main_menu.js.coffee```
+
+```
+# /app/assets/javascripts/elements/main_menu.js.coffee```
+window.App.Element ||= {}
+class App.Element.MainMenu
+
+    constructor: ->
+        return this
+```
+
+
+
 ### Generating New Controllers
 
 When a new controller is generated, the JavaScript asset file will be generated with RailsScript.  However, if you need to manually generate a RailsScript controller you can use:
