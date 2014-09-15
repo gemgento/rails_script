@@ -224,7 +224,7 @@ class App.Element.MainMenu extends App.Utility.Modal
         return this
 ````
     
-Inheritance from the generator can only come from a Utility class.  Any custom class you wish to extend should be created as a Utility.  The installer adds the line ```//= require_tree ./utilities``` before loading tree to handle this.  If you have a utility that extends a utility, you should make sure the extended utility is loaded first by explicitly requiring it before the utilities tree.
+Inheritance from the generator can only come from a Utility class.  Any class you wish to extend should be created as a Utility.  The installer adds the line ```//= require_tree ./utilities``` before loading tree to handle this.  If you have a utility that extends a utility, then make sure the extended utility is loaded first by explicitly requiring it before ```//= require_tree ./utilities```.
 
 
 ### Custom Controllers
