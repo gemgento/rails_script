@@ -117,9 +117,8 @@ This will create the following in ```/app/assets/javascripts/utilities/modal.js.
 
 ```
 # /app/assets/javascripts/utilities/modal.js.coffee
-window.App ||= {}
-window.App.Utility ||= {}
-class App.Utility.Modal
+window.Utility ||= {}
+class Utility.Modal
     
     constructor: ->
         return this
@@ -129,9 +128,8 @@ Let's add some basic functionality:
 
 ```
 # /app/assets/javascripts/utilities/modal.js.coffee
-window.App ||= {}
-window.App.Utility ||= {}
-class App.Utility.Modal
+window.Utility ||= {}
+class Utility.Modal
     @element
     @trigger
     @isOpen = false
@@ -167,7 +165,7 @@ window.App ||= {}
 class App.Users extends App.Base
 
    show: ->
-        @galleryModal = new App.Utility.Modal($('#user-gallery-modal-wrapper'), $('user-gallery-modal-toggle-button'))
+        @galleryModal = new Utility.Modal($('#user-gallery-modal-wrapper'), $('user-gallery-modal-toggle-button'))
 
 ```
 
@@ -185,8 +183,8 @@ This will create the following in ```/app/assets/javascripts/elements/main_menu.
 ```
 # /app/assets/javascripts/elements/main_menu.js.coffee```
 
-window.App.Element ||= {}
-class App.Element.MainMenu
+window.Element ||= {}
+class Element.MainMenu
 
     constructor: ->
         return this
@@ -201,7 +199,7 @@ window.App ||= {}
 class App.Base
 
   constructor: ->
-    App.mainMenu = new App.Element.MainMenu()
+    App.mainMenu = new Element.MainMenu()
     return this
 ```
 
@@ -217,8 +215,8 @@ Which generates:
 ````
 # /app/assets/javascripts/elements/main_menu.js.coffee
 
-window.App.Element ||= {}
-class App.Element.MainMenu extends App.Utility.Modal
+window.Element ||= {}
+class Element.MainMenu extends Utility.Modal
 
     constructor: ->
         return this
