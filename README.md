@@ -130,9 +130,7 @@ Let's add some basic functionality:
 # /app/assets/javascripts/utilities/modal.js.coffee
 window.Utility ||= {}
 class Utility.Modal
-    @element
-    @trigger
-    @isOpen = false
+    isOpen: false
     
     constructor: ($element, $trigger) ->
         @element = $element
