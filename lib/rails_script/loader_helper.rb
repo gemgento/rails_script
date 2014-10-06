@@ -9,6 +9,11 @@ module RailsScript
       return $this.#{ action_name }.call();
     }
   });
+
+  jQuery(document).on('page:before-change', function() {
+    jQuery(document).off();
+    jQuery(window).off();
+  });
       RUBY
     end
 
