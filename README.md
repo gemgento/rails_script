@@ -1,6 +1,6 @@
 # RailsScript
 
-RailsScript is a Rails-centric, object oriented, featherweight framework for writing CoffeeScript.  It is optimized for the [Rails Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html) and is compatible with [TurboLinks](https://github.com/rails/turbolinks).  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintanable page specific JavaScript.
+RailsScript is a Rails-centric, object oriented, featherweight framework for writing CoffeeScript.  It is optimized for the [Rails Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html) and is compatible with [TurboLinks](https://github.com/rails/turbolinks).  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintainable page specific JavaScript.
 
 ## Installation
 
