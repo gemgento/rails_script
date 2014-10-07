@@ -280,6 +280,10 @@ class App.MyClassName
 
 ```
 
+### Passing Rails Variables
+
+To pass data from Rails to JavaScript, just define ```@to_javascript```.  This is then converted to a JSON object with ```@to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.
+
 
 ### Events
 
