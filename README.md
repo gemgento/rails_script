@@ -281,6 +281,11 @@ class App.MyClassName
 ```
 
 
+### Events
+
+Since Turbolinks doesn't refresh the page and only replaces the body, event listeners defined on ```window``` and ```document``` carry between page loads.  To avoid these event listeners stacking, RailsScript will destroy all event listeners on ```window``` and ```document``` that have a blank namespace, i.e. ```$(window).on 'scroll', myHandler```.  If you need an event handler to persist between page changes, then define a namespace, i.e. ```$(window).on 'scroll.namespace', myHandler```.
+
+
 
 
 ## Contributing
