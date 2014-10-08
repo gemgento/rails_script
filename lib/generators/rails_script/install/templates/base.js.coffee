@@ -29,7 +29,7 @@ class App.Base
   when each new page is fetched.  Adding a namespace to your events will prevent them from being removed between page
   loads, i.e. "$(window).on 'scroll.app', myHandler"
   ###
-  clearEventHandlers: ->
+  setClearEventHandlers: ->
     jQuery(document).on 'page:before-change', ->
       for element in [window, document]
         for event, handlers in jQuery._data(element, 'events')
