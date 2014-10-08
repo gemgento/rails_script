@@ -6,17 +6,17 @@ class App.<%= class_name %> extends App.Base
     return this
 
 
-  index: ->
+  index: =>
     return
 
 
-  show: ->
+  show: =>
     return
 
 
-  new: ->
+  new: =>
     return
 
 
-  edit: ->
+  edit: =>
     return
