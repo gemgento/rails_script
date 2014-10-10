@@ -301,7 +301,7 @@ class ApplicationController
 end
 ```
 
-And here's how we print that data to the console on the ```users#index``` action.
+And here's how we print that data to the console on the ```users#index``` action:
 
 ```
 # /app/assets/javascripts/users.js.coffee
