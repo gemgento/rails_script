@@ -284,6 +284,7 @@ class App.MyClassName
 
 To pass data from Rails to JavaScript, just define ```@to_javascript```.  This is then converted to a JSON object with ```@to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.
 
+Here's an example where ```@to_javascript``` is used in a ```before_filter``` to pass the current user and their friends:
 ```
 # /app/controllers/application_controller.rb
 
@@ -299,6 +300,8 @@ class ApplicationController
     
 end
 ```
+
+And here's how we print that data to the console on the ```users#index``` action.
 
 ```
 # /app/assets/javascripts/users.js.coffee
