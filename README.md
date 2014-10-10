@@ -298,8 +298,9 @@ class ApplicationController
     end
     
 end
+```
 
-
+```
 # /app/assets/javascripts/users.js.coffee
 
 window.App ||= {}
