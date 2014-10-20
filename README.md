@@ -310,8 +310,8 @@ window.App ||= {}
 class App.Users extends App.Base
 
     index: =>
-        console.log App.Utility.RailsVars.user
-        console.log App.Utility.RailsVars.friends
+        console.log Utility.RailsVars.user
+        console.log Utility.RailsVars.friends
 ```
 
 
