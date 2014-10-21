@@ -16,7 +16,7 @@ After bundling you need to run the initial installation generator:
 
     $ rails g rails_script:install
     
-After the generator finishes, you will be prompted to add helper call to your application layout.  The generated code is responsible for initializing and calling the action specific JavaScript.  This helper shouyld be called before the closing body tag.
+After the generator finishes, you will be prompted to add helper call to your application layout.  The generated code is responsible for initializing and calling the action specific JavaScript.  This helper should be called before the closing body tag.
 
 ```
 <%= include_rails_script %>
@@ -141,16 +141,16 @@ class Utility.Modal
     
     toggle: (event) =>
         event.preventDefault()
-        if @isShowing then @close() else @open()
+        if @isOpen then @close() else @open()
         
     
     open: =>
-        @isShowing = true
+        @isOpen = true
         @element.show()
         
     
     close: =>
-        @isShowing = false
+        @isOpen = false
         @element.fadeOut('fast')
 ```
 
