@@ -30,8 +30,9 @@ class App.Base
   loads, i.e. "$(window).on 'scroll.app', myHandler"
   ###
   setClearEventHandlers: ->
-    jQuery(document).on 'page:before-change', ->
+    $(document).on 'page:before-change', ->
       for element in [window, document]
-        for event, handlers in (jQuery._data(element, 'events') || {})
+        for event, handlers of ($._data(element, 'events') || {})
           for handler in handlers
-            if handler.namespace == '' then $(element).off event, handler.handler
+            if handler? && handler.namespace == ''
+              $(element).off event, handler.handler
