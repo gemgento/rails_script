@@ -6,7 +6,7 @@ RailsScript is a Rails-centric, object oriented, featherweight framework for wri
 
 Add this line to your application's Gemfile:
 
-    gem 'rails_script', '~> 0.3.2'
+    gem 'rails_script', '~> 0.4.0'
 
 And then execute:
 
@@ -282,7 +282,7 @@ class App.MyClassName
 
 ### Passing Rails Variables
 
-To pass data from Rails to JavaScript, just call ```to_javascript``` with your data.  This is then converted to a JSON object with ```to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.
+To pass data from Rails to JavaScript, just call ```to_javascript``` along with a hash of your data.  This is then converted to a JSON object with ```to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.  ```to_javascript``` may be called from multiple points in the application, all data is merged together. 
 
 Here's an example where ```to_javascript``` is used in a ```before_filter``` to pass the current user and their friends:
 ```
