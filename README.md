@@ -282,9 +282,9 @@ class App.MyClassName
 
 ### Passing Rails Variables
 
-To pass data from Rails to JavaScript, just define ```@to_javascript```.  This is then converted to a JSON object with ```@to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.
+To pass data from Rails to JavaScript, just call ```to_javascript``` with your data.  This is then converted to a JSON object with ```to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.
 
-Here's an example where ```@to_javascript``` is used in a ```before_filter``` to pass the current user and their friends:
+Here's an example where ```to_javascript``` is used in a ```before_filter``` to pass the current user and their friends:
 ```
 # /app/controllers/application_controller.rb
 
@@ -295,7 +295,7 @@ class ApplicationController
     private
     
     def set_javascript_vars
-        @to_javascript = { user: current_user, friends: current_user.friends }
+        to_javascript user: current_user, friends: current_user.friends
     end
     
 end
