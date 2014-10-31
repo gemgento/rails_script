@@ -64,7 +64,7 @@ class App.Users extends App.Base
 
 ### Controller Specific JavaScript
 
-Executing some JavaScript to run on all controller actions is just a matter of adding it to the class contstructor.  In the below example we will change the background color of the page for all actions in ```UsersController```.
+Executing some JavaScript to run on all controller actions is just a matter of adding it to the class constructor.  In the below example we will change the background color of the page for all actions in ```UsersController```.
 
 ```
 # app/assets/javascripts/users.js.coffee
@@ -102,7 +102,7 @@ class App.Base
     )
 ```
 
-In this example we extracted the rollover action into a new function.  Doing so will make the class cleaner and easier to maintain as the application grows.  Once again note the ```return this``` in the contructor.
+In this example we extracted the rollover action into a new function.  Doing so will make the class cleaner and easier to maintain as the application grows.  Once again note the ```return this``` in the constructor.
 
 
 ### Utilities
@@ -170,7 +170,7 @@ class App.Users extends App.Base
 
 ### Elements
 
-An ```Element``` is a class that describes the funcionality of a one off element in the applicattion.  A Main Menu is a good example of this since there is usually only a single Main Menu.
+An ```Element``` is a class that describes the functionality of a one off element in the application.  A Main Menu is a good example of this since there is usually only a single Main Menu.
 
 First generate the ```Element```
 
