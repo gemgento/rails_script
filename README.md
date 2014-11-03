@@ -6,7 +6,7 @@ RailsScript is a Rails-centric, object oriented, featherweight framework for wri
 
 Add this line to your application's Gemfile:
 
-    gem 'rails_script', '~> 0.4.1'
+    gem 'rails_script', '~> 0.5.0'
 
 And then execute:
 
