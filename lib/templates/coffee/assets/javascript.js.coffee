@@ -1,5 +1,5 @@
 window.App ||= {}
-class App.<%= class_name %> extends App.Base
+class App.<%= class_name.gsub('::', '') %> extends App.Base
 
   beforeAction: (action) =>
     return
