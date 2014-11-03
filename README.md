@@ -24,32 +24,9 @@ After the generator finishes, you will be prompted to add helper call to your ap
 
 ## Usage
 
-### Global Functions
+### Page (Action) Specific JavaScript
 
-Any functions that need to be accessible in the global scope should be defined in ```global.js.coffee``` using the ```App``` namespace.  Below is an example of one of our favorite functions that we use to submit a form using AJAX as a JSON request.
-
-```
-# app/assets/javascripts/global.js.coffee
-window.App ||= {}
-
-App.remoteSubmission = ($form, onCompleteCallBack) ->
-  $.ajax
-    url: $form.attr('action')
-    type: $form.attr('method')
-    data: $form.serialize()
-    dataType: 'json'
-    complete: (result) ->
-      onCompleteCallBack(result)
-
-  return
-```
-
-Now you can access this function from anywhere in the application by just calling ```App.remoteSubmission($('#myForm'), alert('Hello'))```
-
-
-### Page Specific JavaScript
-
-This is where things get even easier, your JavaScript class is named after your Controller and there is a method for each Controller action.  Whenever you generate a Controller, the CoffeeScript file that is generated will define the new JavaScript class and the basic REST actions.  This means on ```Users#show``` we can submit that 'follow' request in the background like so:
+Your JavaScript class is named after your Controller and there is a method for each Controller action.  Whenever you generate a Controller, the CoffeeScript file that is generated will define the new JavaScript class and the basic REST actions.  The example below would print 'users#show' in the console for the ```Users#show``` action.
 
 ```
 # app/assets/javascripts/users.js.coffee
@@ -57,27 +34,24 @@ This is where things get even easier, your JavaScript class is named after your 
 window.App ||= {}
 class App.Users extends App.Base
 
-   show: ->
-      App.remoteSubmission($('#follow-user-form'), alert('You are now following them!'))
+   show: =>
+      console.log 'users#show'
 ```
+
 
 
 ### Controller Specific JavaScript
 
-Executing some JavaScript to run on all controller actions is just a matter of adding it to the class constructor.  In the below example we will change the background color of the page for all actions in ```UsersController```.
+Executing some JavaScript to run on all controller actions is just a matter of adding it to the ```all``` function.  This is run before the action specific method.  The example below would print 'users' for each ```Users``` controller action.  
 
 ```
 # app/assets/javascripts/users.js.coffee
 window.App ||= {}
-class App.Example extends App.Base
+class App.Users extends App.Base
 
-  constructor: ->
-    super
-    $('body').css('background-color', 'yellow')
-    return this
+  all: =>
+    console.log 'users'
 ```
-
-Note the call to ```super``` and the ```return this```, it is very important to keep these.  If you wanted your Controller specific JavaScript to run before Application wide JavaScript, then you would call ```super``` just before ```return this```.  Returning ```this``` allows the Application layout JavaScript to call the action specific functions.
 
 
 ### Application Wide JavaScript
@@ -103,6 +77,29 @@ class App.Base
 ```
 
 In this example we extracted the rollover action into a new function.  Doing so will make the class cleaner and easier to maintain as the application grows.  Once again note the ```return this``` in the constructor.
+
+
+
+### Global Functions
+
+Any functions that need to be accessible in the global scope should be defined in ```global.js.coffee``` using the ```App``` namespace.  Below is an example of one of our favorite functions that we use to submit a form using AJAX as a JSON request.
+
+```
+# app/assets/javascripts/global.js.coffee
+window.App ||= {}
+
+App.remoteSubmission = ($form) ->
+  $.ajax
+    url: $form.attr('action')
+    type: $form.attr('method')
+    data: $form.serialize()
+    dataType: 'json'
+
+  return
+```
+
+Now you can access this function from anywhere in the application by just calling ```App.remoteSubmission($('#myForm'))```
+
 
 
 ### Utilities
@@ -168,6 +165,7 @@ class App.Users extends App.Base
 ```
 
 
+
 ### Elements
 
 An ```Element``` is a class that describes the functionality of a one off element in the application.  A Main Menu is a good example of this since there is usually only a single Main Menu.
@@ -202,6 +200,7 @@ class App.Base
 ```
 
 
+
 #### Element Inheritance
 
 Inheritance is another key tool for reusability.  Let's say our ```Element.MainMenu``` opens and closes in the same way as the ```Utility.Modal```.  Well then MainMenu should just extend Modal, this can be accomplished from the generator:
@@ -223,6 +222,7 @@ class Element.MainMenu extends Utility.Modal
 Inheritance from the generator can only come from a Utility class.  Any class you wish to extend should be created as a Utility.  The installer adds the line ```//= require_tree ./utilities``` before loading tree to handle this.  If you have a utility that extends a utility, then make sure the extended utility is loaded first by explicitly requiring it before ```//= require_tree ./utilities```.
 
 
+
 ### Custom Controllers
 
 When a new controller is generated, the JavaScript asset file will be generated with RailsScript.  However, if you need to manually generate a RailsScript controller you can use:
@@ -237,28 +237,28 @@ Since the above example includes a namespace, it would generate:
 window.App ||= {}
 class App.SomeNewController extends App.Base
 
-  constructor: ->
-    super
-    return this
-
-
-  index: ->
+  all: =>
     return
 
 
-  show: ->
+  index: =>
     return
 
 
-  new: ->
+  show: =>
     return
 
 
-  edit: ->
+  new: =>
+    return
+
+
+  edit: =>
     return
 ```
 
-None of the pre-defined functions are necessary, you can remove the ones you don't want.
+None of the pre-defined functions are necessary, you can remove the ones you don't need.
+
 
 
 ### Generic Classes
@@ -279,6 +279,8 @@ class App.MyClassName
         return this
 
 ```
+
+
 
 ### Passing Rails Variables
 
@@ -313,6 +315,7 @@ class App.Users extends App.Base
         console.log Utility.RailsVars.user
         console.log Utility.RailsVars.friends
 ```
+
 
 
 ### Events

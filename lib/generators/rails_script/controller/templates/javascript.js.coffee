@@ -1,9 +1,8 @@
 window.App ||= {}
 class App.<%= controller.gsub('::', '') %> extends App.Base
 
-  constructor: ->
-    super
-    return this
+  all: =>
+    return
 
 
   index: =>
