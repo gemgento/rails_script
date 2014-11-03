@@ -1,9 +1,12 @@
 window.App ||= {}
 class App.<%= class_name %> extends App.Base
 
-  constructor: ->
-    super
-    return this
+  beforeAction: (action) =>
+    return
+
+
+  afterAction: (action) =>
+    return
 
 
   index: =>

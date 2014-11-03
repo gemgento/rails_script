@@ -1,7 +1,11 @@
 window.App ||= {}
 class App.<%= controller.gsub('::', '') %> extends App.Base
 
-  all: =>
+  beforeAction: (action) =>
+    return
+
+
+  afterAction: (action) =>
     return
 
 
