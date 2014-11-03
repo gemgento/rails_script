@@ -42,7 +42,7 @@ class App.Users extends App.Base
 
 ### Controller Specific JavaScript
 
-Executing some JavaScript to run on all controller actions is just a matter of adding it to the ```beforeAction``` or ```afterAction``` function.  ```beforeAction``` is run before all controller action functions and ```afterAction``` is run after all controller action functions.  The before and after action functions have an optional argument ```action``` which is string containing the current action name. The example below would print 'before ACTION action' and 'after ACTION action' for each ```Users``` controller action.  
+Executing some JavaScript to run on all controller actions is just a matter of adding it to the ```beforeAction``` or ```afterAction``` function.  ```beforeAction``` is run before all controller action functions and ```afterAction``` is run after all controller action functions.  The before and after action functions have an optional argument ```action``` which is a string containing the current action name. The example below would print 'before ACTION action' and 'after ACTION action' for each ```Users``` controller action.  
 
 ```
 # app/assets/javascripts/users.js.coffee
@@ -53,7 +53,7 @@ class App.Users extends App.Base
     console.log "before #{action} action"
     
   afterAction: (action) =>
-      console.log "after #{action} action"
+    console.log "after #{action} action"
 ```
 
 
