@@ -28,7 +28,7 @@ After the generator finishes, you will be prompted to add helper call to your ap
 
 Your JavaScript class is named after your Controller and there is a method for each Controller action.  Whenever you generate a Controller, the CoffeeScript file that is generated will define the new JavaScript class and the basic REST actions.  The example below would print 'users#show' in the console for the ```Users#show``` action.
 
-```
+```coffeescript
 # app/assets/javascripts/users.js.coffee
 
 window.App ||= {}
@@ -44,7 +44,7 @@ class App.Users extends App.Base
 
 Executing some JavaScript to run on all controller actions is just a matter of adding it to the ```beforeAction``` or ```afterAction``` function.  ```beforeAction``` is run before all controller action functions and ```afterAction``` is run after all controller action functions.  The before and after action functions have an optional argument ```action``` which is a string containing the current action name. The example below would print 'before ACTION action' and 'after ACTION action' for each ```Users``` controller action.  
 
-```
+```coffeescript
 # app/assets/javascripts/users.js.coffee
 window.App ||= {}
 class App.Users extends App.Base
@@ -61,7 +61,7 @@ class App.Users extends App.Base
 
 Running some JavaScript on every page of an Application is a common need.  For example, we may want to create a site credit rollover in the footer of every page.
 
-```
+```coffeescript
 # app/assets/javascripts/base.js.coffee
 window.App ||= {}
 class App.Base
@@ -87,7 +87,7 @@ In this example we extracted the rollover action into a new function.  Doing so 
 
 Any functions that need to be accessible in the global scope should be defined in ```global.js.coffee``` using the ```App``` namespace.  Below is an example of one of our favorite functions that we use to submit a form using AJAX as a JSON request.
 
-```
+```coffeescript
 # app/assets/javascripts/global.js.coffee
 window.App ||= {}
 
@@ -115,7 +115,7 @@ First, generate the ```Utility```
     
 This will create the following in ```/app/assets/javascripts/utilities/modal.js.coffee```:
 
-```
+```coffeescript
 # /app/assets/javascripts/utilities/modal.js.coffee
 window.Utility ||= {}
 class Utility.Modal
@@ -126,7 +126,7 @@ class Utility.Modal
 
 Let's add some basic functionality:
 
-```
+```coffeescript
 # /app/assets/javascripts/utilities/modal.js.coffee
 window.Utility ||= {}
 class Utility.Modal
@@ -156,7 +156,7 @@ class Utility.Modal
 
 Now, here's how we use the utility from ```users#show```
 
-```
+```coffeescript
 # app/assets/javascripts/users.js.coffee
 
 window.App ||= {}
@@ -179,7 +179,7 @@ First generate the ```Element```
     
 This will create the following in ```/app/assets/javascripts/elements/main_menu.js.coffee```
 
-```
+```coffeescript
 # /app/assets/javascripts/elements/main_menu.js.coffee```
 
 window.Element ||= {}
@@ -191,7 +191,7 @@ class Element.MainMenu
 
 We can now add all the logic for the main menu in a separate class and call it on every page like so:
 
-```
+```coffeescript
 # app/assets/javascripts/base.js.coffee
 
 window.App ||= {}
@@ -212,7 +212,7 @@ Inheritance is another key tool for reusability.  Let's say our ```Element.MainM
     
 Which generates:
 
-````
+````coffeescript
 # /app/assets/javascripts/elements/main_menu.js.coffee
 
 window.Element ||= {}
@@ -234,7 +234,7 @@ When a new controller is generated, the JavaScript asset file will be generated 
     
 Since the above example includes a namespace, it would generate:
 
-```
+```coffeescript
 # app/assets/javascripts/some/new_controller.js.coffee
 
 window.App ||= {}
@@ -276,7 +276,7 @@ To generate a generic class that isn't a Utility, Element or Controller, just us
     
 Which generates:
 
-```
+```coffeescript
 # /app/assets/javascripts/my/class_name.js.coffee
 
 window.App ||= {}
@@ -294,7 +294,7 @@ class App.MyClassName
 To pass data from Rails to JavaScript, just call ```to_javascript``` along with a hash of your data.  This is then converted to a JSON object with ```to_javascript.to_json``` and can be accessed with ```Utility.RailsVars```.  The ```to_javascript``` helper may be called from multiple points in the application, all data is merged together. 
 
 Here's an example where ```to_javascript``` is used in a ```before_filter``` to pass the current user and their friends:
-```
+```ruby
 # /app/controllers/application_controller.rb
 
 class ApplicationController
@@ -312,7 +312,7 @@ end
 
 And here's how we print that data to the console on the ```users#index``` action:
 
-```
+```coffeescript
 # /app/assets/javascripts/users.js.coffee
 
 window.App ||= {}
