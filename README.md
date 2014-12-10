@@ -331,6 +331,11 @@ Since Turbolinks doesn't refresh the page and only replaces the body, event list
 
 
 
+### Page Transitions
+
+Full page transitions are super easy with RailsScript and Turbolinks.  Checkout the wiki for more information on how to add these to your RailsScript application.  https://github.com/gemgento/rails_script/wiki/Turbolinks-Page-Transitions.
+
+
 
 ## Contributing
 
