@@ -92,13 +92,11 @@ Any functions that need to be accessible in the global scope should be defined i
 window.App ||= {}
 
 App.remoteSubmission = ($form) ->
-  $.ajax
+  return $.ajax
     url: $form.attr('action')
     type: $form.attr('method')
     data: $form.serialize()
     dataType: 'json'
-
-  return
 ```
 
 Now you can access this function from anywhere in the application by just calling ```App.remoteSubmission($('#myForm'))```
