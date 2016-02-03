@@ -1,5 +1,5 @@
-window.App ||= {}
-class App.<%= class_name.gsub('::', '') %>
+window.<%= RailsScript.app_namespace %> ||= {}
+class <%= RailsScript.app_namespace %>.<%= class_name.gsub('::', '') %>
 
   constructor: ->
     return this

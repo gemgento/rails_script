@@ -1,5 +1,5 @@
-window.App ||= {}
-class App.Base
+window.<%= RailsScript.app_namespace %> ||= {}
+class <%= RailsScript.app_namespace %>.Base
 
   constructor: ->
     if (window.jQuery) then @setClearEventHandlers() # clearing application event handlers only possible with jQuery
