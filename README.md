@@ -24,6 +24,9 @@ After the generator finishes, you will be prompted to add helper call to your ap
 
 NOTE: Your JS files needed have been included before `include_rails_script`.  In other words, you still need `<%= javascript_include_tag "application" %>` in your application layout.
 
+## Configuration
+You can configure name of your application in config/initializers/rails_script.rb file.
+
 ## Usage
 
 ### Page (Action) Specific JavaScript
