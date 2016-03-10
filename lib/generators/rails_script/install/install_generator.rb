@@ -6,6 +6,7 @@ module RailsScript
       def copy_files
         template 'base.js.coffee', 'app/assets/javascripts/base.js.coffee'
         template 'global.js.coffee', 'app/assets/javascripts/global.js.coffee'
+        template 'rails_script.rb', 'config/initializers/rails_script.rb'
       end
 
       def create_directories

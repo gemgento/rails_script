@@ -1,1 +1,1 @@
-window.App ||= {}
+window.<%= RailsScript.app_namespace %> ||= {}
