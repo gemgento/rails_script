@@ -4,6 +4,8 @@ RailsScript is a Rails-centric, object oriented, featherweight framework for wri
 
 ## Installation
 
+NOTE: RailsScript is not currently compatible with Turbolinks 5 (the Rails 5 default).  This is becase inline JS is ignored.  A future release will fix this issue.
+
 Add this line to your application's Gemfile:
 
     gem 'rails_script', '~> 0.6.1'
