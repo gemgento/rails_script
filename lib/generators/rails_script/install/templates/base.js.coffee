@@ -1,4 +1,10 @@
 window.<%= RailsScript.app_namespace %> ||= {}
+window.Element ||= {}
+window.Utility ||= {}
+
+$(document).on "turbolinks:load.rails_script",  ->
+  window.$this = new (<%= RailsScript.app_namespace %>["#{$('#rails-script').data('controller')}"] || <%= RailsScript.app_namespace %>.Base)()
+
 class <%= RailsScript.app_namespace %>.Base
 
   constructor: ->
