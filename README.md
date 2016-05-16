@@ -4,8 +4,6 @@ RailsScript is a Rails-centric, object oriented, featherweight framework for wri
 
 ## Installation
 
-NOTE: RailsScript is not currently compatible with Turbolinks 5 (the Rails 5 default).  This is becase inline JS is ignored.  A future release will fix this issue.
-
 Add this line to your application's Gemfile:
 
     gem 'rails_script', '~> 0.6.1'
@@ -38,7 +36,6 @@ Your JavaScript class is named after your Controller and there is a method for e
 ```coffeescript
 # app/assets/javascripts/users.js.coffee
 
-window.App ||= {}
 class App.Users extends App.Base
 
    show: =>
@@ -53,7 +50,7 @@ Executing some JavaScript to run on all controller actions is just a matter of a
 
 ```coffeescript
 # app/assets/javascripts/users.js.coffee
-window.App ||= {}
+
 class App.Users extends App.Base
 
   beforeAction: (action) =>
@@ -70,7 +67,8 @@ Running some JavaScript on every page of an Application is a common need.  For e
 
 ```coffeescript
 # app/assets/javascripts/base.js.coffee
-window.App ||= {}
+
+...
 class App.Base
 
   constructor: ->
@@ -84,6 +82,7 @@ class App.Base
       out: ->
         $(".site-credit a").html("SITE CREDIT")
     )
+...
 ```
 
 In this example we extracted the rollover action into a new function.  Doing so will make the class cleaner and easier to maintain as the application grows.  Once again note the ```return this``` in the constructor.
@@ -96,7 +95,6 @@ Any functions that need to be accessible in the global scope should be defined i
 
 ```coffeescript
 # app/assets/javascripts/global.js.coffee
-window.App ||= {}
 
 App.remoteSubmission = ($form) ->
   return $.ajax
@@ -122,7 +120,7 @@ This will create the following in ```/app/assets/javascripts/utilities/modal.js.
 
 ```coffeescript
 # /app/assets/javascripts/utilities/modal.js.coffee
-window.Utility ||= {}
+
 class Utility.Modal
     
     constructor: ->
@@ -133,7 +131,7 @@ Let's add some basic functionality:
 
 ```coffeescript
 # /app/assets/javascripts/utilities/modal.js.coffee
-window.Utility ||= {}
+
 class Utility.Modal
     isOpen: false
     
@@ -164,7 +162,6 @@ Now, here's how we use the utility from ```users#show```
 ```coffeescript
 # app/assets/javascripts/users.js.coffee
 
-window.App ||= {}
 class App.Users extends App.Base
 
    show: ->
@@ -187,7 +184,6 @@ This will create the following in ```/app/assets/javascripts/elements/main_menu.
 ```coffeescript
 # /app/assets/javascripts/elements/main_menu.js.coffee```
 
-window.Element ||= {}
 class Element.MainMenu
 
     constructor: ->
@@ -199,7 +195,6 @@ We can now add all the logic for the main menu in a separate class and call it o
 ```coffeescript
 # app/assets/javascripts/base.js.coffee
 
-window.App ||= {}
 class App.Base
 
   constructor: ->
@@ -220,7 +215,6 @@ Which generates:
 ````coffeescript
 # /app/assets/javascripts/elements/main_menu.js.coffee
 
-window.Element ||= {}
 class Element.MainMenu extends Utility.Modal
 
     constructor: ->
@@ -284,7 +278,6 @@ Which generates:
 ```coffeescript
 # /app/assets/javascripts/my/class_name.js.coffee
 
-window.App ||= {}
 class App.MyClassName
     
     constructor: ->
@@ -320,7 +313,6 @@ And here's how we print that data to the console on the ```users#index``` action
 ```coffeescript
 # /app/assets/javascripts/users.js.coffee
 
-window.App ||= {}
 class App.Users extends App.Base
 
     index: =>
