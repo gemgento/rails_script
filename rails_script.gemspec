@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = 'rails_script'
   spec.version       = RailsScript::VERSION
   spec.authors       = ['Kevin Pheasey']
-  spec.email         = ['kevin.pheasey@gmail.com']
+  spec.email         = ['kevin@kpheasey.com']
   spec.summary       = %q{A Rails-centric, object oriented, featherweight framework for writting CoffeeScript}
   spec.description   = %q{Rails Script is a Rails-centric, object oriented, featherweight framework for writting CoffeeScript. It is optomized for the Rails Asset Pipeline and is compatible with TurboLinks. Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintanable page specific JavaScript.}
-  spec.homepage      = 'https://github.com/gemgento/rails_script'
+  spec.homepage      = 'https://github.com/kpheasey/rails_script'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\u0000")
