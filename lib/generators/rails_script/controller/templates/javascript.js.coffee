@@ -1,22 +1,25 @@
-window.App ||= {}
-class App.<%= controller.gsub('::', '') %> extends App.Base
+window.<%= RailsScript.app_namespace %> ||= {}
+class <%= RailsScript.app_namespace %>.<%= controller.gsub('::', '') %> extends <%= RailsScript.app_namespace %>.Base
 
-  constructor: ->
-    super
-    return this
-
-
-  index: ->
+  beforeAction: (action) =>
     return
 
 
-  show: ->
+  afterAction: (action) =>
     return
 
 
-  new: ->
+  index: =>
     return
 
 
-  edit: ->
+  show: =>
+    return
+
+
+  new: =>
+    return
+
+
+  edit: =>
     return

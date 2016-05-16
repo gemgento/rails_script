@@ -7,5 +7,10 @@ module RailsScript
     initializer 'rails_Script.loader_helper' do
       ActionView::Base.send :include, LoaderHelper
     end
+
+    initializer 'rails_script.to_javascript' do
+      ActionController::Base.send :include, ToJavascript
+    end
+    
   end
 end
