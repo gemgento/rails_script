@@ -3,6 +3,7 @@ window.Element ||= {}
 window.Utility ||= {}
 
 $(document).on "turbolinks:load.rails_script",  ->
+  Utility.RailsVars = $('#rails-script').data('vars')
   window.$this = new (<%= RailsScript.app_namespace %>["#{$('#rails-script').data('controller')}"] || <%= RailsScript.app_namespace %>.Base)()
 
 class <%= RailsScript.app_namespace %>.Base
