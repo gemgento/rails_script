@@ -37,7 +37,7 @@ class <%= RailsScript.app_namespace %>.Base
   loads, i.e. "$(window).on 'scroll.app', myHandler"
   ###
   setClearEventHandlers: ->
-    jQuery(document).on 'page:before-change', ->
+    jQuery(document).on 'turbolinks:before-visit', ->
       for element in [window, document]
         for event, handlers of (jQuery._data(element, 'events') || {})
           for handler in handlers
