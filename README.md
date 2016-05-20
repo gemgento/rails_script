@@ -28,9 +28,6 @@ After the generator finishes, you will be prompted to add helper call to your ap
 
 NOTE: Your JS files needed have been included before `include_rails_script`.  In other words, you still need `<%= javascript_include_tag "application" %>` in your application layout.
 
-## Configuration
-You can configure name of your application in config/initializers/rails_script.rb file.
-
 ## Usage
 
 ### Page (Action) Specific JavaScript
@@ -231,7 +228,7 @@ Inheritance from the generator can only come from a Utility class.  Any class yo
 
 ### Custom Controllers
 
-When a new controller is generated, the JavaScript asset file will be generated with RailsScript.  However, if you need to manually generate a RailsScript controller you can use:
+When a new controller is generated, the JavaScript asset file will be generated with App.  However, if you need to manually generate a RailsScript controller you can use:
 
     $ rails g rails_script:controller Some::NewController
     
