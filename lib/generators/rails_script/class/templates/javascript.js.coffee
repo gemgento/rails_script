@@ -1,4 +1,4 @@
-class <%= RailsScript.app_namespace %>.<%= class_name.gsub('::', '') %>
+class App.<%= class_name.gsub('::', '') %>
 
   constructor: ->
     return this

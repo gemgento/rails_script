@@ -1,34 +1,28 @@
 module RailsScript
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
-      source_root File.expand_path("../templates", __FILE__)
+      source_root File.expand_path("../../../../../app/assets/javascripts", __FILE__)
 
       def copy_files
-        template 'base.js.coffee', 'app/assets/javascripts/base.js.coffee'
-        template 'global.js.coffee', 'app/assets/javascripts/global.js.coffee'
-        template 'rails_script.rb', 'config/initializers/rails_script.rb'
-      end
-
-      def create_directories
-        directory 'utilities/', 'app/assets/javascripts/utilities'
-        directory 'elements/', 'app/assets/javascripts/elements'
+        template 'base.coffee', 'app/assets/javascripts/base.coffee'
+        template 'global.coffee', 'app/assets/javascripts/global.coffee'
       end
 
       def insert_load_order
         if File.exist?('app/assets/javascripts/application.js')
 
           if File.readlines('app/assets/javascripts/application.js').grep('//= require_tree .').any?
-            inject_into_file 'app/assets/javascripts/application.js',  "\n//= require base\n//= require_tree ./utilities\n//= require_tree ./elements", before: "\n//= require_tree ."
+            inject_into_file 'app/assets/javascripts/application.js',  "//= require rails_script\n", before: '//= require_tree .'
           else
-            append_file 'app/assets/javascripts/application.js',  "\n//= require base\n//= require_tree ./utilities\n//= require_tree ./elements\n//= require_tree ."
+            append_file 'app/assets/javascripts/application.js',  "\n//= require rails_script"
           end
 
         elsif File.exist?('app/assets/javascripts/application.js.coffee')
 
           if File.readlines('app/assets/javascripts/application.js.coffee').grep('#= require_tree .').any?
-            inject_into_file 'app/assets/javascripts/application.js.coffee', "\n#= require base\n#= require_tree ./utilities\n#= require_tree ./elements", before: "\n#= require_tree ."
+            inject_into_file 'app/assets/javascripts/application.js.coffee', "#= require rails_script\n", before: '#= require_tree .'
           else
-            append_file 'app/assets/javascripts/application.js.coffee',  "\n#= require base\n#= require_tree ./utilities\n#= require_tree ./elements\n#= require_tree ."
+            append_file 'app/assets/javascripts/application.js.coffee',  "\n#= require rails_script"
           end
         end
       end

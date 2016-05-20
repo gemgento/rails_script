@@ -1,4 +1,4 @@
-class <%= RailsScript.app_namespace %>.<%= controller.gsub('::', '') %> extends <%= RailsScript.app_namespace %>.Base
+class App.<%= controller.gsub('::', '') %> extends App.Base
 
   beforeAction: (action) =>
     return
