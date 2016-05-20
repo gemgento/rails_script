@@ -2,15 +2,15 @@
 
 RailsScript is a Rails-centric, object oriented, featherweight framework for writing CoffeeScript.  It is optimized for the [Rails Asset Pipeline](http://guides.rubyonrails.org/asset_pipeline.html) and is compatible with [TurboLinks](https://github.com/rails/turbolinks).  Using Rails controller names and actions to call JavaScript, it has never been easier to write clean, concise, and maintainable page specific JavaScript.
 
-## Upgrade From 0.x to 1.x
+## Upgrading to V2
 
-To migrate from version 0.x to 1.x, please see the wiki; https://github.com/gemgento/rails_script/wiki/v0.x-to-V1.x-Migration
+To migrate from version 0.x to 1.x, please see the wiki; https://github.com/gemgento/rails_script/wiki/v2-Migration
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'rails_script', '~> 1.0', '<= 2.0'
+    gem 'rails_script', '~> 2.0'
 
 And then execute:
 
