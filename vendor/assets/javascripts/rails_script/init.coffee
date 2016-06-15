@@ -27,7 +27,7 @@ RailsScript.init = ->
 
 # Clear event handlers on navigation
 RailsScript.setClearEventHandlers = ->
-  jQuery(document).on 'page:before-change turbolinks:before-visit', ->
+  jQuery(document).on 'page:before-change turbolinks:before-render', ->
     for element in [window, document]
       for event, handlers of (jQuery._data(element, 'events') || {})
         for handler in handlers
