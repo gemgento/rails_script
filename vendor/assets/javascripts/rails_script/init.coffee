@@ -3,8 +3,15 @@ window.App ||= {}
 window.Element ||= {}
 window.Utility ||= {}
 
+if Turbolinks?
+  $(document).on "page:load.rails_script turbolinks:load.rails_script", ->
+    RailsScript.init()
+else
+  $(document).on "ready.rails_script", ->
+    RailsScript.init()
+
 # Initializer
-$(document).on "ready.rails_script page:load.rails_script turbolinks:load.rails_script",  ->
+RailsScript.init = ->
   controller = $('#rails-script').data('controller')
   action = $('#rails-script').data('action')
   Utility.RailsVars = $('#rails-script').data('vars')
