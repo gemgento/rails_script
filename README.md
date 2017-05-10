@@ -28,6 +28,24 @@ After the generator finishes, you will be prompted to add helper call to your ap
 
 NOTE: Your JS files needed have been included before `include_rails_script`.  In other words, you still need `<%= javascript_include_tag "application" %>` in your application layout.
 
+After including the view helper in your application layout, you will need to require the RailsScript javascript library inside your application.js or application.coffee file before the `require_tree .` line.
+
+if using javascript (app/assets/javascripts/application.js):
+```
+// * other app specific js require lines 
+
+//= require rails_script
+//= require_tree .
+```
+
+if using coffeescript (app/assets/javascripts/application.coffee):
+```
+# * other app specific js require lines 
+
+#= require rails_script
+#= require_tree .
+```
+
 ## Usage
 
 ### Page (Action) Specific JavaScript
